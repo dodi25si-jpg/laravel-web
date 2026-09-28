@@ -3,6 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
 
+// Route untuk menampilkan halaman utama/form (GET)
+Route::get('/home', function () {
+    return view('home');
+});
+
+// Route untuk memproses form (POST)
+Route::post('/question/store', [QuestionController::class, 'store'])->name('question.store');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,6 +40,3 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
