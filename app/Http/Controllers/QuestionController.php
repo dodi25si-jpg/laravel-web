@@ -25,10 +25,24 @@ class QuestionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-public function store(Request $request)
+    public function store(Request $request)
 {
-    // Menghentikan proses dan menampilkan seluruh data input form
-    dd($request->all());
+    // Validasi inputan beserta pesan kustom
+    $request->validate([
+        'nama'       => 'required|max:10',
+        'email'      => ['required', 'email'],
+        'pertanyaan' => 'required|max:300|min:8',
+    ], [
+        'nama.required' => 'Nama tidak boleh kosong',
+        'email.email'   => 'Email Tidak valid',
+    ]);
+
+    // Ambil data jika validasi lolos
+    $data['nama']       = $request->nama;
+    $data['email']      = $request->email;
+    $data['pertanyaan'] = $request->pertanyaan;
+
+    return view('home-question-respon', $data);
 }
     /**
      * Display the specified resource.
