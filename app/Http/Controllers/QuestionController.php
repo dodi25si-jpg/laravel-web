@@ -25,15 +25,10 @@ class QuestionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+public function store(Request $request)
 {
-    // Mengirim data inputan form ke halaman berikutnya
-    return redirect()->back()->with([
-        'success' => true,
-        'nama' => $request->nama,
-        'email' => $request->email,
-        'pertanyaan' => $request->pertanyaan,
-    ]);
+    // Menghentikan proses dan menampilkan seluruh data input form
+    dd($request->all());
 }
     /**
      * Display the specified resource.
