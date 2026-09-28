@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuestionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,4 +25,13 @@ Route::get('/mahasiswa/{profil}', function ( $profil) {
     } else if($profil== 'profil'){
         return view('halaman-mahasiswa-profil');
     }
+});
+
+Route::post('question/store', [QuestionController::class, 'store'])->name('question.store');
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+Route::get('/home', function () {
+    return view('home');
 });
