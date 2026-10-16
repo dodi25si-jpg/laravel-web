@@ -616,7 +616,7 @@
           }
         },
         dataLabels: { enabled: false },
-        colors: ['#072F1F', '#B4F105'],
+        colors: ['#0ba165', '#6b8f07'],
         xaxis: {
           categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
           axisBorder: { show: false },
