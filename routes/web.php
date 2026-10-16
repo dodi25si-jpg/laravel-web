@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Guest\GuestController;
 
 // Route untuk menampilkan halaman utama/form (GET)
 Route::get('/home', function () {
@@ -41,4 +42,8 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+//admin 
 Route::get('/Admin', [AdminController::class, 'index']);
+
+//guest
+Route::get('/Guest', [GuestController::class, 'index']);
