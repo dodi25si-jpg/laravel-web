@@ -10,16 +10,14 @@
   <meta name="description" content="Dashboard admin Web Kantinku untuk memantau menu, pesanan, dan pendapatan kantin.">
   <meta name="author" content="Web Kantinku">
 
-  <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.ico') }}">
+  <link rel="icon" type="image/png" href="{{ asset('assets-admin/images/favicon.ico') }}">
 
-<!-- Local Third-Party Libraries -->
-<link rel="stylesheet" href="{{ asset('assets-admin/libs/bootstrap/css/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets-admin/libs/bootstrap-icons/bootstrap-icons.css') }}">
-<link rel="stylesheet" href="{{ asset('assets-admin/libs/apexcharts/apexcharts.css') }}">
-<link rel="stylesheet" href="{{ asset('assets-admin/libs/flatpickr/flatpickr.min.css') }}">
+  <!-- Bootstrap 5 CSS & Icons via CDN (Fix Layout & Grid) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-<!-- Main Custom Stylesheet -->
-<link rel="stylesheet" href="{{ asset('assets-admin/css/main.css') }}">
+  <!-- Main Custom Stylesheet -->
+  <link rel="stylesheet" href="{{ asset('assets-admin/css/main.css') }}">
 </head>
 
 <script src="{{ asset('assets-admin/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -101,7 +99,7 @@
     </div>
 
     <div class="sidebar-profile">
-      <img src="{{ asset('assets/images/kantinku.png') }}" alt="Administrator" class="sidebar-profile-img"
+      <img src="{{ asset('assets-admin/images/kantinku.png') }}" alt="Administrator" class="sidebar-profile-img"
         onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256&auto=format&fit=crop'">
       <div class="sidebar-profile-info">
         <div class="sidebar-profile-name">Admin Kantin</div>
@@ -213,7 +211,7 @@
         <div class="dropdown ms-2">
           <button class="navbar-profile-btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
             aria-expanded="false" id="profile-dropdown">
-            <img src="{{ asset('assets/images/kantinku.png') }}" alt="Profile Image" class="navbar-profile-img">
+            <img src="{{ asset('assets-admin/images/kantinku.png') }}" alt="Profile Image" class="navbar-profile-img">
             <span class="navbar-profile-name d-none d-md-inline">Admin Kantin</span>
             <i class="bi bi-chevron-down navbar-profile-caret"></i>
           </button>
