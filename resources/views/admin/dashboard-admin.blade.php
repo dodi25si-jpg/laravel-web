@@ -34,16 +34,22 @@
       <span>KANTINKU</span>
     </a>
 
-    <!-- Navigation Menu -->
-    <div class="flex-grow-1 overflow-y-auto">
-      <!-- Group: Menu -->
+   <!-- Group: Menu -->
       <div class="sidebar-menu-section">
         <div class="sidebar-menu-title">MENU</div>
         <ul class="sidebar-menu-list">
           <li class="sidebar-menu-item">
-            <a href="index.html" class="sidebar-menu-link active" id="menu-overview" title="Overview">
+            <a href="/Admin" class="sidebar-menu-link active" id="menu-overview" title="Overview">
               <i class="bi bi-grid-fill"></i>
               <span>Dashboard</span>
+            </a>
+          </li>
+          
+          <!-- Tambahkan Menu Data Produk di bawah ini -->
+          <li class="sidebar-menu-item">
+            <a href="{{ route('product.index') }}" class="sidebar-menu-link" title="Data Produk">
+              <i class="bi bi-box-seam-fill"></i>
+              <span>Data Produk</span>
             </a>
           </li>
         </ul>

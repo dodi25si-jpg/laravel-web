@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Guest\GuestController;
+use App\Http\Controllers\Admin\ProductController;
 
 // Route untuk menampilkan halaman utama/form (GET)
 Route::get('/home', function () {
@@ -47,3 +48,15 @@ Route::get('/Admin', [AdminController::class, 'index']);
 
 //guest
 Route::get('/Guest', [GuestController::class, 'index']);
+
+//product
+Route::resource('product', ProductController::class);
+
+// Group route khusus untuk Customer yang sudah login
+Route::middleware(['auth'])->prefix('customer')->as('customer.')->group(function () {
+    // Halaman Lihat Profil
+    Route::get('/profile', [CustomerController::class, 'profile'])->name('profile');
+    
+    // Proses Simpan / Update Profil
+    Route::put('/profile', [CustomerController::class, 'updateProfile'])->name('profile.update');
+});
