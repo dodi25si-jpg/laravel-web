@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-    use HasFactory;
+    protected $table = 'customers';
+    protected $primaryKey = 'customer_id';
 
     protected $fillable = [
-        'user_id',
-        'phone_number',
-        'address',
-        'date_of_birth',
+        'first_name',
+        'last_name',
+        'birthday',
         'gender',
+        'email',
+        'phone',
     ];
 }
-

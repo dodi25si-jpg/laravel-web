@@ -3,67 +3,80 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $customers = Customer::with('user')->latest()->get();
-        return view('admin.customers.index', compact('customers'));
+        $data['dataCustomer'] = Customer::all();
+        return view('admin.customer.index', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.customer.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required|string|max:100',
+            'last_name'  => 'required|string|max:100',
+            'birthday'   => 'required|date',
+            'gender'     => 'required|in:Male,Female',
+            'email'      => 'required|email|max:255|unique:customers,email',
+            'phone'      => 'required|numeric|digits_between:8,20',
+        ]);
+
+        $data['first_name'] = $request->first_name;
+        $data['last_name'] = $request->last_name;
+        $data['birthday'] = $request->birthday;
+        $data['gender'] = $request->gender;
+        $data['email'] = $request->email;
+        $data['phone'] = $request->phone;
+
+        Customer::create($data);
+
+        return redirect()->route('customer.index')->with('success', 'Penambahan Data Berhasil!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $data['dataCustomer'] = Customer::findOrFail($id);
+        return view('admin.customer.edit', $data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+
+        $request->validate([
+            'first_name' => 'required|string|max:100',
+            'last_name'  => 'required|string|max:100',
+            'birthday'   => 'required|date',
+            'gender'     => 'required|in:Male,Female',
+            'email'      => 'required|email|max:255|unique:customers,email,' . $customer->customer_id . ',customer_id',
+            'phone'      => 'required|numeric|digits_between:8,20',
+        ]);
+
+        $customer->first_name = $request->first_name;
+        $customer->last_name = $request->last_name;
+        $customer->birthday = $request->birthday;
+        $customer->gender = $request->gender;
+        $customer->email = $request->email;
+        $customer->phone = $request->phone;
+        $customer->save();
+
+        return redirect()->route('customer.index')->with('success', 'Perubahan Data Berhasil!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $customer = Customer::findOrFail($id);
         $customer->delete();
 
-        return redirect()->route('admin.customers.index')->with('success', 'Data customer berhasil dihapus.');
+        return redirect()->route('customer.index')->with('success', 'Data berhasil dihapus');
     }
 }

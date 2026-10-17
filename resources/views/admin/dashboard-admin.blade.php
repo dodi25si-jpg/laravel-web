@@ -30,11 +30,13 @@
          ========================================== -->
   <div class="sidebar-wrapper" id="sidebar">
     <!-- Brand Logo / Identity -->
-    <a href="index.html" class="sidebar-brand">
+    <a href="/Admin" class="sidebar-brand">
       <span>KANTINKU</span>
     </a>
 
-   <!-- Group: Menu -->
+    <!-- Navigation Menu Wrapper -->
+    <div class="flex-grow-1 overflow-y-auto">
+      <!-- Group: Menu -->
       <div class="sidebar-menu-section">
         <div class="sidebar-menu-title">MENU</div>
         <ul class="sidebar-menu-list">
@@ -45,11 +47,24 @@
             </a>
           </li>
           
-          <!-- Tambahkan Menu Data Produk di bawah ini -->
           <li class="sidebar-menu-item">
             <a href="{{ route('product.index') }}" class="sidebar-menu-link" title="Data Produk">
               <i class="bi bi-box-seam-fill"></i>
               <span>Data Produk</span>
+            </a>
+          </li>
+
+          <li class="sidebar-menu-item">
+            <a href="{{ route('category.index') }}" class="sidebar-menu-link" title="Data Kategori">
+              <i class="bi bi-tags-fill"></i>
+              <span>Data Kategori</span>
+            </a>
+          </li>
+
+          <li class="sidebar-menu-item">
+            <a href="{{ route('customer.index') }}" class="sidebar-menu-link" title="Data Customer">
+              <i class="bi bi-person-fill"></i>
+              <span>Data Customer</span>
             </a>
           </li>
         </ul>

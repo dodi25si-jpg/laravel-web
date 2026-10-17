@@ -2,23 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
-
     protected $table = 'products';
-
-    // Matikan fitur timestamps otomatis
-    public $timestamps = false;
+    protected $primaryKey = 'product_id';
 
     protected $fillable = [
-        'Nama Produk',
-        'Harga Produk',
-        'Stok Produk',
-        'Category',
+        'category_id',
+        'name',
+        'price',
+        'stock',
     ];
-}
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'category_id');
+    }
+}
