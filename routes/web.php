@@ -7,6 +7,7 @@ use App\Http\Controllers\Guest\GuestController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\UserController;
 
 // Route untuk menampilkan halaman utama/form (GET)
 Route::get('/home', function () {
@@ -46,12 +47,13 @@ Route::get('/welcome', function () {
 });
 
 //admin 
-Route::get('/Admin', [AdminController::class, 'index']);
+Route::get('/Admin', [AdminController::class, 'index'])->name('admin.dashboard');
 
 //guest
 Route::get('/Guest', [GuestController::class, 'index']);
 
-//admin - CRUD (Product, Category, Customer)
+//admin - CRUD (Product, Category, Customer, User)
 Route::resource('product', ProductController::class)->except('show');
 Route::resource('category', CategoryController::class)->except('show');
 Route::resource('customer', CustomerController::class)->except('show');
+Route::resource('user', UserController::class)->except('show');
