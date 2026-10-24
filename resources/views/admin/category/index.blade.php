@@ -1,8 +1,4 @@
 @extends('layouts.admin.app')
-
-@section('title', 'Data Kategori')
-@section('page-title', 'Manajemen Kategori')
-@section('page-subtitle', 'Kelola kategori produk kantin kamu.')
 @section('page-action')
   <a href="{{ route('category.create') }}" class="btn btn-primary rounded-pill px-4">
     <i class="bi bi-plus-lg me-1"></i> Tambah Kategori

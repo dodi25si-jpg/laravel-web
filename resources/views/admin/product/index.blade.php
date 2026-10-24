@@ -1,8 +1,4 @@
 @extends('layouts.admin.app')
-
-@section('title', 'Data Produk')
-@section('page-title', 'Manajemen Produk')
-@section('page-subtitle', 'Kelola daftar makanan, minuman, dan stok kantin kamu.')
 @section('page-action')
   <a href="{{ route('product.create') }}" class="btn btn-primary rounded-pill px-4">
     <i class="bi bi-plus-lg me-1"></i> Tambah Produk
