@@ -1,6 +1,4 @@
 @extends('layouts.admin.app')
-
-
 @section('content')
 <div class="card mb-4 col-md-8">
   <div class="card-body">

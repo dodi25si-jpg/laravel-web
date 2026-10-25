@@ -1,9 +1,7 @@
 @extends('layouts.admin.app')
-
 @section('title', 'Tambah User')
 @section('page-title', 'Tambah User')
 @section('page-subtitle', 'Isi form di bawah ini untuk menambahkan user baru.')
-
 @section('content')
 <div class="card mb-4 col-md-8">
   <div class="card-body">

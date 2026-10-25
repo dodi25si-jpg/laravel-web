@@ -1,5 +1,4 @@
 @extends('layouts.admin.app')
-
 @section('title', 'Data Customer')
 @section('page-title', 'Manajemen Customer')
 @section('page-subtitle', 'Kelola data pelanggan kantin kamu.')

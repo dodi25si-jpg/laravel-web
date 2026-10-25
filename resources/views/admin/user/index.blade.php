@@ -1,5 +1,4 @@
 @extends('layouts.admin.app')
-
 @section('title', 'Data User')
 @section('page-title', 'Manajemen User')
 @section('page-subtitle', 'Kelola akun user yang dapat mengakses sistem.')

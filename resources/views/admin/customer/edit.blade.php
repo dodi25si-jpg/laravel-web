@@ -1,9 +1,7 @@
 @extends('layouts.admin.app')
-
 @section('title', 'Edit Customer')
 @section('page-title', 'Edit Customer')
 @section('page-subtitle', 'Ubah data customer lalu simpan perubahan.')
-
 @section('content')
 <div class="card mb-4 col-md-8">
   <div class="card-body">
